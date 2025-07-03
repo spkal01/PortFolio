@@ -47,7 +47,7 @@ const Hero = () => {
             >
               <Avatar className="w-40 h-40 md:w-48 md:h-48 rounded-full shadow-2xl border-4 border-white dark:border-gray-700">
                 <AvatarImage 
-                  src="https://github.com/spkal01.png" 
+                  src="../../public/profile.jpg" 
                   className="object-cover"
                 />
                 <AvatarFallback className="text-2xl font-bold bg-gradient-to-br from-blue-500 to-purple-600 text-white">
