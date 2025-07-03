@@ -24,7 +24,7 @@ const Projects = () => {
       try {
         // Replace 'octocat' with your GitHub username
         const response = await fetch(
-          "https://api.github.com/users/spkal01/repos?sort=updated&per_page=6"
+          "https://api.github.com/users/spkal01/repos?sort=pushed&per_page=6"
         );
         
         if (!response.ok) {
