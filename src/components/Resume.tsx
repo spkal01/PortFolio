@@ -7,7 +7,7 @@ const Resume = () => {
       title: "Founder and Lead Developer",
       company: "SparkOS",
       period: "2021 - 2024",
-      description: "Lead development of SparkOS, a custom android operating system.",
+      description: "Lead developer of SparkOS, a custom android operating system.",
       achievements: [
         "Managed a team of over 10 developers",
         "Implemented features used by 10000+ users",
