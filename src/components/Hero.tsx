@@ -1,8 +1,15 @@
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import Aurora from "./ui/aurora";
+import { useTheme } from "../context/ThemeContext";
 
 const Hero = () => {
+  const { darkMode } = useTheme();
+
+  const lightModeColors = ["#7DD3FC", "#67E8F9", "#D8B4FE", "#F0F9FF"];
+  const darkModeColors = ["#4F46E5", "#7C3AED", "#DB2777", "#312E81"];
+
   const scrollToProjects = () => {
     const element = document.getElementById("projects");
     if (element) {
@@ -12,9 +19,14 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5 dark:opacity-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500" />
+      {/* Aurora Background */}
+      <div className="absolute top-0 left-0 h-full w-full">
+        <Aurora
+          speed={0.8}
+          blend={0.5}
+          amplitude={0.5}
+          colorStops={darkMode ? darkModeColors : lightModeColors}
+         />
       </div>
 
       <div className="container mx-auto px-6 text-center relative z-10">
