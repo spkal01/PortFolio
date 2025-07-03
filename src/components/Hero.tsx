@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import { ChevronDown } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import Aurora from "./ui/aurora";
@@ -10,6 +11,9 @@ const Hero = () => {
   const lightModeColors = ["#7DD3FC", "#67E8F9", "#D8B4FE", "#F0F9FF"];
   const darkModeColors = ["#4F46E5", "#7C3AED", "#DB2777", "#312E81"];
 
+  const heroRef = useRef(null);
+  const isInView = useInView(heroRef, { margin: "100px" });
+
   const scrollToProjects = () => {
     const element = document.getElementById("projects");
     if (element) {
@@ -18,15 +22,18 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section ref={heroRef} id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Aurora Background */}
       <div className="absolute top-0 left-0 h-full w-full">
-        <Aurora
-          speed={0.8}
-          blend={0.5}
-          amplitude={0.5}
-          colorStops={darkMode ? darkModeColors : lightModeColors}
-         />
+        {/* Conditionally render the Aurora component only when it's in view */}
+        {isInView && (
+          <Aurora
+            speed={0.8}
+            blend={0.5}
+            amplitude={0.5}
+            colorStops={darkMode ? darkModeColors : lightModeColors}
+          />
+        )}
       </div>
 
       <div className="container mx-auto px-6 text-center relative z-10">
